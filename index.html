@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talleres Garcés | Plancha y pintura en L'Hospitalet de Llobregat</title>
+<meta name="description" content="Taller de plancha y pintura. Reparación integral de carrocerías de turismos, furgonetas y 4x4. Trabajamos con todas las compañías de seguros, rentings y particulares. Nuevas instalaciones en C. Miguel Hernández 96, Pol. Gran Vía 2, L'Hospitalet.">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;
+  --soft:#F5F5F7;        /* gris perla */
+  --mist:#EEF3F8;        /* azul niebla */
+  --ink:#1D1D1F;
+  --mute:#6E6E73;
+  --hair:#E3E3E8;
+  --accent:#3A6EA5;      /* azul acero suave */
+  --accent-ink:#2C5785;
+  --sand:#F6F1EA;        /* arena cálida */
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",system-ui,sans-serif;
+  --r-lg:28px; --r-md:20px;
+  --wrap:min(1080px,100% - 2.5rem);
+  --paint-a:#9DB4CE; --paint-b:#3A5A80; --paint-c:#1E2F45;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.5;font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.wrap{width:var(--wrap);margin-inline:auto}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:1rem;top:1rem;background:var(--ink);color:#fff;padding:.5rem 1rem;border-radius:99px;z-index:99}
+
+/* Navegación */
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
+header.top .wrap{display:flex;align-items:center;gap:2rem;height:56px}
+.brand{font-size:1.05rem;font-weight:600;letter-spacing:-.02em}
+.brand span{font-weight:300;color:var(--mute)}
+nav.main{display:flex;gap:1.8rem;margin-left:auto}
+nav.main a{font-size:.88rem;color:#424245;transition:color .2s}
+nav.main a:hover{color:var(--ink)}
+.lang{display:flex;background:var(--soft);border-radius:99px;padding:3px}
+.lang button{font:500 .75rem var(--font);border:0;background:none;color:var(--mute);padding:.3rem .65rem;border-radius:99px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;font:500 1rem var(--font);padding:.8rem 1.5rem;border-radius:99px;transition:background .2s,color .2s,transform .2s}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-ink)}
+.btn-ghost{color:var(--accent);padding-inline:.6rem}
+.btn-ghost:hover{text-decoration:underline;text-underline-offset:4px}
+.btn-soft{background:var(--soft);color:var(--ink)}
+.btn-soft:hover{background:#ebebf0}
+.btn svg{width:17px;height:17px;flex:none}
+header .btn{padding:.42rem .95rem;font-size:.82rem}
+
+/* Hero */
+.hero{text-align:center;padding:clamp(3.5rem,8vw,6.5rem) 0 0}
+.pill{display:inline-flex;align-items:center;gap:.5rem;background:var(--mist);color:var(--accent-ink);font-size:.88rem;font-weight:500;padding:.45rem 1rem;border-radius:99px;transition:background .2s}
+.pill:hover{background:#e2ebf5}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--accent);font-style:normal}
+.hero h1{font-weight:300;font-size:clamp(2.7rem,7vw,5.2rem);line-height:1.04;letter-spacing:-.035em;margin:1.6rem auto 0;max-width:15ch}
+.hero h1 b{font-weight:500;display:block}
+.hero p.lead{font-size:clamp(1.1rem,1.8vw,1.35rem);font-weight:300;color:var(--mute);max-width:40ch;margin:1.4rem auto 0;line-height:1.45}
+.hero .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1rem;margin-top:2.2rem}
+
+/* Tarjeta de pintura interactiva */
+.paint{margin:clamp(3rem,6vw,4.5rem) auto 0;width:var(--wrap)}
+.panel{position:relative;width:100%;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:16/7;min-height:300px;
+  background:
+    radial-gradient(120% 90% at 18% 0%,rgba(255,255,255,.55),transparent 55%),
+    radial-gradient(90% 120% at 100% 100%,var(--paint-c),transparent 70%),
+    linear-gradient(135deg,var(--paint-a),var(--paint-b));
+  transition:--paint-a .8s,--paint-b .8s,--paint-c .8s}
+.panel::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.35) 48%,transparent 60%);mix-blend-mode:soft-light}
+.panel .cap{position:absolute;left:clamp(1.4rem,3vw,2.5rem);bottom:clamp(1.4rem,3vw,2.2rem);color:#fff;text-align:left;z-index:1}
+.panel .cap small{display:block;font-size:.85rem;font-weight:400;opacity:.85}
+.panel .cap strong{display:block;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:300;letter-spacing:-.02em}
+.swatches{display:flex;justify-content:center;gap:.9rem;margin-top:1.4rem}
+.sw{width:30px;height:30px;border-radius:50%;border:0;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1);outline-offset:4px;transition:transform .2s}
+.sw:hover{transform:scale(1.1)}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ink)}
+.swatch-label{font-size:.82rem;color:var(--mute);margin-top:.8rem;text-align:center}
+@property --paint-a{syntax:"<color>";inherits:true;initial-value:#9DB4CE}
+@property --paint-b{syntax:"<color>";inherits:true;initial-value:#3A5A80}
+@property --paint-c{syntax:"<color>";inherits:true;initial-value:#1E2F45}
+
+/* Secciones */
+section{padding:clamp(5rem,10vw,8rem) 0;scroll-margin-top:56px}
+.head{text-align:center;max-width:44rem;margin:0 auto clamp(2.5rem,5vw,3.8rem)}
+.eyebrow{color:var(--accent);font-weight:500;font-size:1rem;margin-bottom:.6rem}
+h2{font-weight:300;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.08;letter-spacing:-.03em}
+h2 b{font-weight:500}
+.head p{color:var(--mute);font-size:1.15rem;font-weight:300;margin-top:1rem;line-height:1.5}
+
+/* Traslado: bento */
+.move{background:var(--soft)}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.card{background:#fff;border-radius:var(--r-lg);padding:clamp(1.6rem,3vw,2.4rem)}
+.card h3{font-size:.9rem;font-weight:500;color:var(--mute);margin-bottom:.8rem}
+.addr{font-size:clamp(1.35rem,2.4vw,1.75rem);font-weight:300;line-height:1.25;letter-spacing:-.02em}
+.card.old .addr{color:#a1a1a6;text-decoration:line-through;text-decoration-thickness:1px}
+.card.old p.note{margin-top:.9rem;color:var(--mute);font-size:.95rem}
+.card.new{background:linear-gradient(160deg,#ffffff,#EEF3F8)}
+.card.new h3{color:var(--accent)}
+.card.new .addr{font-weight:400;color:var(--ink)}
+.date{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;background:#fff;border-radius:99px;padding:.45rem .95rem;font-size:.9rem;font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.date i{width:7px;height:7px;border-radius:50%;background:#34C759}
+.mapcard{grid-column:1 / -1;padding:0;overflow:hidden;display:grid;grid-template-columns:1.7fr 1fr}
+.mapcard iframe{width:100%;height:100%;min-height:340px;border:0;display:block;filter:saturate(.6)}
+.mapcard .side{padding:clamp(1.6rem,3vw,2.4rem);display:flex;flex-direction:column;justify-content:center;gap:1.2rem}
+.mapcard .side p{color:var(--mute);font-weight:300;font-size:1.05rem}
+
+/* Servicios */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.svc{background:var(--soft);border-radius:var(--r-lg);padding:2.2rem 2rem 2.4rem}
+.svc .ic{width:52px;height:52px;border-radius:16px;background:#fff;display:grid;place-items:center;margin-bottom:1.6rem;color:var(--accent)}
+.svc .ic svg{width:26px;height:26px}
+.svc h3{font-size:1.35rem;font-weight:500;letter-spacing:-.02em;margin-bottom:.5rem}
+.svc p{color:var(--mute);font-weight:300;font-size:1rem}
+.vehicles{display:flex;justify-content:center;flex-wrap:wrap;gap:.6rem;margin-top:2.5rem}
+.vehicles span{background:#fff;border:1px solid var(--hair);border-radius:99px;padding:.55rem 1.2rem;font-size:.95rem;color:#424245}
+
+/* Seguros */
+.insure{background:var(--sand)}
+.who{display:flex;justify-content:center;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.who span{background:#fff;border-radius:99px;padding:.55rem 1.2rem;font-size:.95rem;font-weight:500}
+.steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.steps li{counter-increment:s;background:#fff;border-radius:var(--r-md);padding:1.7rem 1.5rem 1.9rem}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--sand);color:#8a6a45;font-weight:500;font-size:.95rem;margin-bottom:1.2rem}
+.steps h3{font-size:1.1rem;font-weight:500;margin-bottom:.35rem;letter-spacing:-.01em}
+.steps p{color:var(--mute);font-weight:300;font-size:.97rem}
+
+/* Contacto */
+.contact{text-align:center}
+.phone{display:inline-block;font-size:clamp(2.8rem,8vw,5.6rem);font-weight:200;letter-spacing:-.04em;line-height:1;margin-top:1.8rem;transition:color .2s}
+.phone:hover{color:var(--accent)}
+.contact .addr-line{color:var(--mute);font-weight:300;margin-top:1.6rem;font-size:1.05rem}
+.contact .ctas{display:flex;justify-content:center;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+
+footer{background:var(--soft);padding:1.6rem 0 2rem;font-size:.78rem;color:var(--mute)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;border-top:1px solid var(--hair);padding-top:1.2rem}
+
+.callbar{display:none}
+
+@media (max-width:900px){
+  nav.main{display:none}
+  .lang{margin-left:auto}
+  .bento,.mapcard{grid-template-columns:1fr}
+  .mapcard iframe{min-height:260px}
+  .svc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .panel{aspect-ratio:4/3.2}
+  .callbar{display:flex;position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:30;background:var(--accent);color:#fff;border-radius:99px;padding:.85rem 1.6rem;gap:.5rem;align-items:center;font-weight:500;box-shadow:0 8px 24px rgba(44,87,133,.35);white-space:nowrap}
+  .callbar svg{width:18px;height:18px}
+  footer{padding-bottom:5.5rem}
+}
+@media (max-width:560px){
+  header .btn .t{display:none}
+  header .btn{padding:.45rem .6rem}
+  .steps{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .panel{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#main">Garcés <span data-i18n="brandSub">Talleres</span></a>
+    <nav class="main" aria-label="Principal">
+      <a href="#servicios" data-i18n="navServices">Servicios</a>
+      <a href="#instalaciones" data-i18n="navMove">Nuevas instalaciones</a>
+      <a href="#seguros" data-i18n="navInsure">Seguros</a>
+      <a href="#contacto" data-i18n="navContact">Contacto</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="ca" aria-pressed="false">CA</button>
+    </div>
+    <a class="btn btn-primary" href="tel:+34934245645"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span class="t">93 424 56 45</span></a>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="hero">
+    <div class="wrap">
+      <a class="pill" href="#instalaciones"><i></i><span data-i18n-html="pill">Nuevas instalaciones en L'Hospitalet, <span data-when>muy pronto</span></span></a>
+      <h1 data-i18n-html="h1">Plancha y pintura. <b>Como recién salido de fábrica.</b></h1>
+      <p class="lead" data-i18n="lead">Reparación integral de carrocerías para turismos, furgonetas y 4x4, con acabados de primera calidad.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="tel:+34934245645" data-i18n="ctaCall">Llamar al taller</a>
+        <a class="btn btn-ghost" href="#instalaciones" data-i18n="ctaWhere">Ver la nueva dirección ›</a>
+      </div>
+    </div>
+
+    <div class="paint">
+      <div class="panel" id="panel" role="img" aria-label="Muestra de pintura">
+        <div class="cap"><small data-i18n="paintSmall">Igualamos el color original de tu coche</small><strong id="paintName">Azul acero</strong></div>
+      </div>
+      <div class="swatches" role="group" aria-label="Colores de muestra">
+        <button class="sw" type="button" aria-pressed="true"  data-c="#9DB4CE,#3A5A80,#1E2F45" data-es="Azul acero" data-ca="Blau acer" style="background:#3A5A80"><span class="skip">Azul acero</span></button>
+        <button class="sw" type="button" aria-pressed="false" data-c="#E9E7E3,#BDBAB4,#8F8C87" data-es="Blanco perla" data-ca="Blanc perla" style="background:#E9E7E3"><span class="skip">Blanco perla</span></button>
+        <button class="sw" type="button" aria-pressed="false" data-c="#C9CDD2,#868C94,#4A4F56" data-es="Gris plata" data-ca="Gris plata" style="background:#9AA0A8"><span class="skip">Gris plata</span></button>
+        <button class="sw" type="button" aria-pressed="false" data-c="#B8C9B9,#5E7A66,#2F4436" data-es="Verde salvia" data-ca="Verd sàlvia" style="background:#6F8B76"><span class="skip">Verde salvia</span></button>
+        <button class="sw" type="button" aria-pressed="false" data-c="#E2B6AE,#B0524A,#6E2A26" data-es="Rojo granate" data-ca="Vermell granat" style="background:#A9473F"><span class="skip">Rojo granate</span></button>
+        <button class="sw" type="button" aria-pressed="false" data-c="#6F737A,#2E3237,#121417" data-es="Negro" data-ca="Negre" style="background:#24272B"><span class="skip">Negro</span></button>
+      </div>
+      <p class="swatch-label" data-i18n="swatchLabel">Toca un color</p>
+    </div>
+  </div>
+
+  <section class="move" id="instalaciones" aria-labelledby="h-move">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow" data-i18n="moveEyebrow">Nuevas instalaciones</p>
+        <h2 id="h-move" data-i18n-html="moveH">Hemos crecido. <b>Más espacio para tu coche.</b></h2>
+        <p data-i18n="moveIntro">Para darte un mejor servicio ampliamos nuestras instalaciones. Mismo equipo y mismo teléfono. Gracias por seguir confiando en nosotros.</p>
+      </div>
+      <div class="bento">
+        <div class="card old">
+          <h3 data-i18n="oldLabel">Hasta ahora</h3>
+          <p class="addr">C/ Comte Borrell, 107<br>Barcelona</p>
+          <p class="note" data-i18n="oldNote">450 m² de taller en el centro de Barcelona.</p>
+        </div>
+        <div class="card new">
+          <h3 data-i18n="newLabel">Ahora</h3>
+          <p class="addr">C. Miguel Hernández, 96<br>Pol. Gran Vía 2, L'Hospitalet</p>
+          <span class="date"><i></i><span id="datePill">Próximamente</span></span>
+        </div>
+        <div class="card mapcard">
+          <iframe title="Mapa: C. Miguel Hernández 96, L'Hospitalet de Llobregat" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Carrer%20de%20Miguel%20Hern%C3%A1ndez%2096%2C%2008908%20L%27Hospitalet%20de%20Llobregat&output=embed"></iframe>
+          <div class="side">
+            <p data-i18n="mapTxt">En el polígono Gran Vía 2, junto a la Gran Vía. Fácil acceso en coche desde Barcelona y desde las rondas.</p>
+            <div><a class="btn btn-soft" href="https://maps.app.goo.gl/JdMUzLqHQJ1LinS58" target="_blank" rel="noopener" data-i18n="mapBtn">Abrir en Google Maps</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" aria-labelledby="h-svc">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow" data-i18n="svcEyebrow">Servicios</p>
+        <h2 id="h-svc" data-i18n-html="svcH">Todo lo que necesita <b>tu carrocería.</b></h2>
+        <p data-i18n="svcIntro">Desde un golpe de aparcamiento hasta un siniestro completo, lo hacemos en nuestro propio taller.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 15c3-5 7-7 11-7 3 0 5 1 7 3"/><path d="M3 18h18"/></svg></div>
+          <h3 data-i18n="s1h">Plancha</h3>
+          <p data-i18n="s1p">Reparamos abolladuras, golpes y piezas de chapa dañadas, o las sustituimos cuando hace falta.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
+          <h3 data-i18n="s2h">Pintura</h3>
+          <p data-i18n="s2p">Igualamos el color original para que la reparación no se note. Acabados de primera calidad.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15l2-5h11l4 5h1v4H3z"/><circle cx="7.5" cy="19" r="1.8"/><circle cx="17" cy="19" r="1.8"/></svg></div>
+          <h3 data-i18n="s3h">Reparación integral</h3>
+          <p data-i18n="s3p">Nos ocupamos de toda la carrocería, desde la valoración del daño hasta la entrega del coche terminado.</p>
+        </article>
+      </div>
+      <div class="vehicles">
+        <span data-i18n="v1">Turismos</span><span data-i18n="v2">Furgonetas</span><span>4x4</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="insure" id="seguros" aria-labelledby="h-ins">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow" data-i18n="insEyebrow">Seguros</p>
+        <h2 id="h-ins" data-i18n-html="insH">Vengas como vengas, <b>te lo gestionamos.</b></h2>
+        <div class="who"><span data-i18n="w1">Compañías de seguros</span><span data-i18n="w2">Rentings</span><span data-i18n="w3">Particulares</span></div>
+      </div>
+      <ol class="steps">
+        <li><h3 data-i18n="p1h">Llámanos</h3><p data-i18n="p1p">Cuéntanos qué le ha pasado al coche y quedamos para que lo traigas.</p></li>
+        <li><h3 data-i18n="p2h">Valoramos el daño</h3><p data-i18n="p2p">Revisamos el coche y, si va por el seguro, nos coordinamos con tu compañía.</p></li>
+        <li><h3 data-i18n="p3h">Plancha y pintura</h3><p data-i18n="p3p">Reparamos la carrocería y pintamos en nuestras instalaciones.</p></li>
+        <li><h3 data-i18n="p4h">Recoges tu coche</h3><p data-i18n="p4p">Te avisamos en cuanto está listo para que pases a buscarlo.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto" aria-labelledby="h-con">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="conEyebrow">Contacto</p>
+      <h2 id="h-con" data-i18n-html="conH">Pide cita <b>o presupuesto.</b></h2>
+      <a class="phone" href="tel:+34934245645">93 424 56 45</a>
+      <p class="addr-line">C. Miguel Hernández, 96 · Pol. Gran Vía 2 · L'Hospitalet de Llobregat</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="tel:+34934245645" data-i18n="ctaCall">Llamar al taller</a>
+        <a class="btn btn-soft" href="https://maps.app.goo.gl/JdMUzLqHQJ1LinS58" target="_blank" rel="noopener" data-i18n="cRoute">Cómo llegar</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Talleres Garcés · <span data-i18n="footTag">Taller de plancha y pintura</span></span>
+    <span>93 424 56 45</span>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+34934245645"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span data-i18n="ctaCall">Llamar al taller</span></a>
+
+<script>
+/* ===== AJUSTE: fecha del traslado. Escribirla aquí cuando el cliente la confirme.
+   Ejemplo: { es: "el 15 de enero", ca: "el 15 de gener" }. Vacío = "muy pronto". */
+const MOVE_DATE = { es: "", ca: "" };
+
+const T = { es:{}, ca:{
+  skip:"Saltar al contingut", brandSub:"Tallers",
+  navServices:"Serveis", navMove:"Noves instal·lacions", navInsure:"Assegurances", navContact:"Contacte",
+  pill:"Noves instal·lacions a l'Hospitalet, <span data-when></span>",
+  h1:"Planxa i pintura. <b>Com acabat de sortir de fàbrica.</b>",
+  lead:"Reparació integral de carrosseries per a turismes, furgonetes i 4x4, amb acabats de primera qualitat.",
+  ctaCall:"Trucar al taller", ctaWhere:"Veure la nova adreça ›",
+  paintSmall:"Igualem el color original del teu cotxe", swatchLabel:"Toca un color",
+  moveEyebrow:"Noves instal·lacions",
+  moveH:"Hem crescut. <b>Més espai per al teu cotxe.</b>",
+  moveIntro:"Per donar-te un millor servei ampliem les nostres instal·lacions. Mateix equip i mateix telèfon. Gràcies per continuar confiant en nosaltres.",
+  oldLabel:"Fins ara", oldNote:"450 m² de taller al centre de Barcelona.", newLabel:"Ara",
+  mapTxt:"Al polígon Gran Via 2, al costat de la Gran Via. Fàcil accés amb cotxe des de Barcelona i des de les rondes.",
+  mapBtn:"Obrir a Google Maps",
+  svcEyebrow:"Serveis", svcH:"Tot el que necessita <b>la teva carrosseria.</b>",
+  svcIntro:"Des d'un cop d'aparcament fins a un sinistre complet, ho fem al nostre propi taller.",
+  s1h:"Planxa", s1p:"Reparem abonyegaments, cops i peces de xapa malmeses, o les substituïm quan cal.",
+  s2h:"Pintura", s2p:"Igualem el color original perquè la reparació no es noti. Acabats de primera qualitat.",
+  s3h:"Reparació integral", s3p:"Ens ocupem de tota la carrosseria, des de la valoració del dany fins al lliurament del cotxe acabat.",
+  v1:"Turismes", v2:"Furgonetes",
+  insEyebrow:"Assegurances", insH:"Vinguis com vinguis, <b>t'ho gestionem.</b>",
+  w1:"Companyies d'assegurances", w2:"Rentings", w3:"Particulars",
+  p1h:"Truca'ns", p1p:"Explica'ns què li ha passat al cotxe i quedem perquè el portis.",
+  p2h:"Valorem el dany", p2p:"Revisem el cotxe i, si va per l'assegurança, ens coordinem amb la teva companyia.",
+  p3h:"Planxa i pintura", p3p:"Reparem la carrosseria i pintem a les nostres instal·lacions.",
+  p4h:"Recull el teu cotxe", p4p:"T'avisem tan bon punt està llest perquè el vinguis a buscar.",
+  conEyebrow:"Contacte", conH:"Demana cita <b>o pressupost.</b>", cRoute:"Com arribar-hi",
+  footTag:"Taller de planxa i pintura"
+}};
+const SOON = { es:"muy pronto", ca:"molt aviat" };
+const PILL = { es:["A partir de ","Próximamente"], ca:["A partir de ","Properament"] };
+let lang = "es";
+
+document.querySelectorAll("[data-i18n]").forEach(el=>T.es[el.dataset.i18n]=el.textContent);
+document.querySelectorAll("[data-i18n-html]").forEach(el=>T.es[el.dataset.i18nHtml]=el.innerHTML);
+
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const v=T[l][el.dataset.i18n]; if(v) el.textContent=v;});
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{const v=T[l][el.dataset.i18nHtml]; if(v) el.innerHTML=v;});
+  document.querySelectorAll("[data-when]").forEach(el=>el.textContent = MOVE_DATE[l] || SOON[l]);
+  document.getElementById("datePill").textContent = MOVE_DATE[l] ? PILL[l][0]+MOVE_DATE[l] : PILL[l][1];
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.lang===l));
+  const on = document.querySelector('.sw[aria-pressed="true"]'); if(on) document.getElementById("paintName").textContent = on.dataset[l];
+  try{localStorage.setItem("garces-lang",l)}catch(e){}
+}
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+
+// muestras de pintura
+const panel = document.getElementById("panel");
+document.querySelectorAll(".sw").forEach(b=>b.addEventListener("click",()=>{
+  const [a,bb,c] = b.dataset.c.split(",");
+  panel.style.setProperty("--paint-a",a); panel.style.setProperty("--paint-b",bb); panel.style.setProperty("--paint-c",c);
+  document.querySelectorAll(".sw").forEach(x=>x.setAttribute("aria-pressed", x===b));
+  document.getElementById("paintName").textContent = b.dataset[lang];
+}));
+
+const q = new URLSearchParams(location.search).get("lang");
+let saved=null; try{saved=localStorage.getItem("garces-lang")}catch(e){}
+setLang(q==="ca"||q==="es" ? q : (saved || "es"));
+</script>
+</body>
+</html>
