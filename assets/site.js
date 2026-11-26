@@ -41,7 +41,8 @@ const COMMON_CA = {
   fHoursTxt:"Dilluns a divendres<br>8:00–13:00 i 15:00–19:00<br>Dissabte i diumenge tancat",
   fMember:"Membre del Gremi de Tallers de Barcelona",
   ratingTxt:"<span data-count></span> ressenyes a Google",
-  revAll:"Veure-les totes a Google", revNote:"Ressenyes publicades a Google per clients del taller."
+  revAll:"Veure-les totes a Google", revNote:"Ressenyes publicades a Google per clients del taller.",
+  fLegal:"Avís legal i privacitat", mapShow:"Veure el mapa", mapNote:"El mapa es carrega des de Google Maps quan el demanes."
 };
 const SOON = { es:"muy pronto", ca:"molt aviat" };
 const PILL = { es:["A partir de ","Próximamente"], ca:["A partir de ","Properament"] };
@@ -92,6 +93,14 @@ if (menuBtn && nav) {
   });
   document.addEventListener("keydown",e=>{ if(e.key==="Escape" && nav.classList.contains("open")){ menuBtn.click(); menuBtn.focus(); }});
 }
+
+// Mapa: solo se carga desde Google cuando el visitante lo pide (sin cookies de terceros antes)
+document.querySelectorAll(".map-load").forEach(btn=>btn.addEventListener("click",()=>{
+  const f = document.createElement("iframe");
+  f.src = btn.dataset.src; f.title = btn.dataset.title || "Mapa"; f.loading = "lazy";
+  f.referrerPolicy = "no-referrer-when-downgrade";
+  btn.replaceWith(f);
+}));
 
 renderReviews();
 const q = new URLSearchParams(location.search).get("lang");

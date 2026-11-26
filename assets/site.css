@@ -1,5 +1,6 @@
 /* Talleres Garcés — estilos compartidos
    Rojo (el del rótulo) + negro + blanco. Minimalista, tipografía fina, todo redondeado. */
+@font-face{font-family:"Inter";font-style:normal;font-weight:200 700;font-display:swap;src:url("fonts/inter-latin.woff2") format("woff2")}
 :root{
   --white:#FFFFFF;
   --snow:#F5F5F7;
@@ -212,7 +213,14 @@ h3.title{font-weight:400;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.15;let
 
 /* Dónde estamos */
 .where{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:1rem}
-.where iframe{width:100%;height:100%;min-height:440px;border:0;border-radius:var(--r-lg);filter:grayscale(1) contrast(1.05);display:block}
+.where iframe,.map-load{width:100%;height:100%;min-height:440px;border:0;border-radius:var(--r-lg);display:block}
+.where iframe{filter:grayscale(1) contrast(1.05)}
+.map-load{position:relative;overflow:hidden;background:var(--coal);cursor:pointer;color:#fff;font:inherit;text-align:left}
+.map-load img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45;filter:grayscale(1)}
+.map-load span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:.6rem;text-align:center;width:80%}
+.map-load b{background:#fff;color:var(--black);font-weight:500;padding:.8rem 1.5rem;border-radius:99px}
+.map-load small{color:#E5E5EA;font-size:.85rem;font-weight:300}
+.map-load:hover b{background:#e8e8ed}
 .where dl{background:var(--snow);border-radius:var(--r-lg);padding:clamp(1.7rem,3vw,2.4rem);display:grid;gap:1.5rem;align-content:start}
 .dark .where dl{background:var(--coal)}
 .where dt{font-size:.85rem;color:var(--mute);margin-bottom:.35rem}
@@ -253,7 +261,7 @@ footer.site .legal{border-top:1px solid var(--coal-2);padding:1.3rem 0 2rem;disp
   .info-cards{grid-template-columns:minmax(0,1fr)}
   .mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:180px}
   .page-img{aspect-ratio:16/10}
-  .where iframe{min-height:300px}
+  .where iframe,.map-load{min-height:320px}
   footer.site .cols{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
@@ -263,3 +271,9 @@ footer.site .legal{border-top:1px solid var(--coal-2);padding:1.3rem 0 2rem;disp
   .era-top{flex-direction:column}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tile{transition:none}}
+
+/* Textos legales */
+.legal-text .title-sm{font-size:1.35rem;font-weight:500;letter-spacing:-.015em;color:var(--black);margin:2.8rem 0 .9rem}
+.legal-text .title-sm:first-child{margin-top:0}
+.legal-text a{border-bottom:1px solid var(--hair)}
+.legal-text a:hover{border-color:var(--red)}
