@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html">Garcés <span data-i18n="brandSub">Talleres</span></a>
+    <nav class="main" id="nav" aria-label="Principal">
+      <a href="index.html"{{cur:index}} data-i18n="navHome">Inicio</a>
+      <a href="nuevo-taller.html"{{cur:nuevo-taller}} data-i18n="navMove">El nuevo taller</a>
+      <a href="servicios.html"{{cur:servicios}} data-i18n="navServices">Servicios</a>
+      <a href="opiniones.html"{{cur:opiniones}} data-i18n="navReviews">Opiniones</a>
+      <a href="donde-estamos.html"{{cur:donde-estamos}} data-i18n="navWhere">Dónde estamos</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="ca" aria-pressed="false">CA</button>
+    </div>
+    <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menú"><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+{{body}}
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <p class="brand">Garcés <span data-i18n="brandSub">Talleres</span></p>
+        <p data-i18n="fAbout">Taller de plancha y pintura. Reparación integral de carrocerías para turismos, furgonetas y 4x4.</p>
+      </div>
+      <div>
+        <h4 data-i18n="fPages">Páginas</h4>
+        <ul>
+          <li><a href="nuevo-taller.html" data-i18n="navMove">El nuevo taller</a></li>
+          <li><a href="servicios.html" data-i18n="navServices">Servicios</a></li>
+          <li><a href="opiniones.html" data-i18n="navReviews">Opiniones</a></li>
+          <li><a href="donde-estamos.html" data-i18n="navWhere">Dónde estamos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="fNew">Nueva dirección</h4>
+        <p>C. Miguel Hernández, 96<br>Pol. Gran Vía 2<br>08908 L'Hospitalet de Llobregat</p>
+      </div>
+      <div>
+        <h4 data-i18n="fHours">Horario</h4>
+        <p data-i18n-html="fHoursTxt">Lunes a viernes<br>8:00–13:00 y 15:00–19:00<br>Sábado y domingo cerrado</p>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© Talleres Garcés · 93 424 56 45 · talleresgarcesbcn@gmail.com</span>
+      <span data-i18n="fMember">Miembro del Gremi de Tallers de Barcelona</span>
+    </div>
+  </div>
+</footer>
+
+<script>window.PAGE_CA = {{ca}};</script>
+<script src="assets/site.js"></script>
+</body>
+</html>
