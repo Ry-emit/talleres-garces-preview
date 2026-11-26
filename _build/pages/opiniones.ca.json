@@ -1,8 +1,8 @@
 {
   "eyebrow": "Opinions",
-  "h1": "El que diuen <b>els nostres clients.</b>",
+  "h1": "Opinions de clients",
   "thEyebrow": "El que més destaquen",
-  "thH": "Quatre coses que <b>es repeteixen.</b>",
+  "thH": "El que més valoren",
   "thLead": "Llegint les ressenyes, hi ha temes que surten una vegada i una altra.",
   "th1h": "Rapidesa",
   "th1p": "«Me han pintado unos roces de aparcamiento en 1 día».",
@@ -14,8 +14,8 @@
   "th4p": "«Serios, rápidos y reparación impecable».",
   "featBy": "Jordi, client · Ressenya a Google",
   "allEyebrow": "Ressenyes",
-  "allH": "Amb les seves <b>pròpies paraules.</b>",
-  "lvH": "Ja has passat <b>pel taller?</b>",
+  "allH": "Ressenyes",
+  "lvH": "Ja has passat pel taller?",
   "lvLead": "La teva opinió ajuda altres conductors a trobar-nos. Pots deixar-la a la nostra fitxa de Google.",
   "lvBtn": "Deixar una ressenya a Google"
 }
