@@ -409,3 +409,6 @@ footer.site .legal{border-top-color:#1F1F21}
 .light .list li{border-color:#E5E5EA}
 .light .where dl{background:#F5F5F7}
 .light .legal-text a{border-color:#E5E5EA}
+.mosaic .m-wide2{grid-column:span 2}
+@media (max-width:960px){.mosaic .m-wide2{grid-column:span 2}}
+.mosaic{grid-auto-flow:dense}
